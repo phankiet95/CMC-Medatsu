@@ -119,6 +119,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(110, 23);
             this.txtDate.TabIndex = 11;
+            this.txtDate.Click += new System.EventHandler(this.txtDate_Click);
             // 
             // metroLabel4
             // 

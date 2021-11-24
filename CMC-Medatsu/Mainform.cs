@@ -23,7 +23,7 @@ namespace CMC_Medatsu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txtDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+            
         }
 
         private void excelFileProcess(String path)
@@ -95,6 +95,14 @@ namespace CMC_Medatsu
         {
             AboutForm about = new AboutForm();
             about.Show();
+        }
+
+        private void txtDate_Click(object sender, EventArgs e)
+        {
+            if (txtDate.Text == "")
+            {
+                txtDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
+            }
         }
     }
 }

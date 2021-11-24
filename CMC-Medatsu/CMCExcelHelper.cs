@@ -94,7 +94,11 @@ namespace CMC_Medatsu
                 worksheet.Cell(10, "E").FormulaA1 = "=COUNTA(A13:A" + lastRow + ")";
 
                 // Tester
-                worksheet.Cell(8, "B").Value = pic;
+                if (worksheet.Cell(8, "B").Value.ToString() == "" && pic != "")
+                {
+                    worksheet.Cell(8, "B").Value = pic;
+                }
+                
 
                 // test Result sheet
                 string sheetName = "'" + worksheet.Name + "'";
@@ -119,8 +123,15 @@ namespace CMC_Medatsu
                     indexString = functionName + MedatsuStringHelper.getNext(startIndex, numberDigit);
                     worksheet.Cell(9 , currentCol).Value = indexString;
                     // Update pic && date
-                    worksheet.Cell(lastRow, currentCol).Value = pic;
-                    worksheet.Cell(lastRow - 1, currentCol).Value = date;
+                    if (worksheet.Cell(lastRow, currentCol).Value.ToString() == "" && pic != "")
+                    {
+                        worksheet.Cell(lastRow, currentCol).Value = pic;
+                    }
+                    if (worksheet.Cell(lastRow - 1, currentCol).Value.ToString() == "" && date != "")
+                    {
+                        worksheet.Cell(lastRow - 1, currentCol).Value = date;
+                    }
+                        
                     currentCol++;
                     startIndex++;
                 }
